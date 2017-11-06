@@ -1,15 +1,3 @@
-// Error example for loosing this context
-const obj = {
-    name: 'Vikram',
-    getName() {
-        return this.name;
-    }
-};
-
-const getName = obj.getName.bind(obj); //bind: allows you to set the context.
-
-console.log(obj.getName());
-
 class IndecisionApp extends React.Component {
     render() {
         const title = "Indecision App";
@@ -54,6 +42,12 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+    // Efficent use of bind
+    constructor(props) {
+        super(props);
+        this.handleRemoveAll = this.handleRemoveAll.bind(this); // corrects the context.
+    }
+
     handleRemoveAll() {
         console.log(this.props.options);
     }
@@ -61,7 +55,8 @@ class Options extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleRemoveAll}>Remove All</button> 
+                /* Expensive use of Bind */
+                <button onClick={this.handleRemoveAll.bind(this)}>Remove All</button> 
                 {
                     this.props.options.map((option) => <Option key={option} optionText={option}/>)
                 }
