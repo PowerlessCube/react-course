@@ -35,14 +35,14 @@ class Action extends React.Component {
         );
     }
 }
-//Challenge 2: Render new p tag for each option (set text, set key).
+
 class Options extends React.Component {
     render() {
         return (
             <div>
-            {
-                this.props.options.map((option) => <p key={option}>{option}</p>)
-            }
+                {
+                    this.props.options.map((option) => <Option key={option} optionText={option}/>)
+                }
             </div>
         );
     }
@@ -51,7 +51,7 @@ class Options extends React.Component {
 class Option extends React.Component {
     render() {
         return (
-            <li>Option component here.</li>
+            <p>{this.props.optionText}</p>
         );
     };
 }
