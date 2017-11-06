@@ -1,3 +1,17 @@
+// Error example for loosing this context
+const obj = {
+    name: 'Vikram',
+    getName() {
+        return this.name;
+    }
+};
+//ref to method
+const getName = obj.getName; // Error: getName not defined
+//Output to console
+console.log(obj.getName());
+
+// reason for error: getName function looses context of obj.getName and is undefined.
+
 class IndecisionApp extends React.Component {
     render() {
         const title = "Indecision App";
@@ -8,7 +22,6 @@ class IndecisionApp extends React.Component {
             <div>
                 <Header title={title} subTitle={subTitle} />
                 <Action />
-                <RemoveAll />
                 <Options options={options} />
                 <AddOption />
             </div>
@@ -42,20 +55,15 @@ class Action extends React.Component {
     }
 }
 
-class RemoveAll extends React.Component {
-    handleRemoveAll() {
-        alert('handleRemoveAll');
-    }
-
-    render() {
-        return <button onClick={this.handleRemoveAll}>Remove All</button> 
-    }
-}
-
 class Options extends React.Component {
+    handleRemoveAll() {
+        console.log(this.props.options);
+    }
+
     render() {
         return (
             <div>
+                <button onClick={this.handleRemoveAll}>Remove All</button> 
                 {
                     this.props.options.map((option) => <Option key={option} optionText={option}/>)
                 }
