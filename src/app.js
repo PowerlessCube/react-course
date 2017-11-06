@@ -5,12 +5,10 @@ const obj = {
         return this.name;
     }
 };
-//ref to method
-const getName = obj.getName; // Error: getName not defined
-//Output to console
-console.log(obj.getName());
 
-// reason for error: getName function looses context of obj.getName and is undefined.
+const getName = obj.getName.bind(obj); //bind: allows you to set the context.
+
+console.log(obj.getName());
 
 class IndecisionApp extends React.Component {
     render() {
