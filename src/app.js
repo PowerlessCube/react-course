@@ -19,14 +19,37 @@ class Action extends React.Component {
     }
 }
 
-// Options -> Options component here
-
+// Challenge Phase
+class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                <ul>
+                    <li>Option 1</li>
+                    <li>Option 2</li>
+                    <li>Option 3</li>
+                </ul>
+            </div>
+        );
+    }
+}
 // AddOption -> AddOption component here
+class AddOption extends React.Component {
+    render() {
+        return (
+            <div>
+                <button>Add Option</button>
+            </div>
+        );
+    }
+}
 
 const jsx = (
     <div>
         <Header />
         <Action />
+        <Options />
+        <AddOption />
     </div>
 );
 
