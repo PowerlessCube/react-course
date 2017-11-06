@@ -35,21 +35,14 @@ class Action extends React.Component {
         );
     }
 }
-// Challenge
-// Setup options prop for Options component
-// Render the length of the array
-
+//Challenge 2: Render new p tag for each option (set text, set key).
 class Options extends React.Component {
     render() {
         return (
             <div>
-                <ul>
-                    <span>{this.props.options.length}</span>
-                    <Option />
-                    <Option />
-                    <Option />
-                    <Option />
-                </ul>
+            {
+                this.props.options.map((option) => <p key={option}>{option}</p>)
+            }
             </div>
         );
     }
