@@ -42,15 +42,12 @@ class Action extends React.Component {
     }
 }
 
-// Add Remove All button
 class RemoveAll extends React.Component {
     handleRemoveAll() {
-        // Setup handleRemoveAll -> alert some message
         alert('handleRemoveAll');
     }
 
     render() {
-        // Setup onClick to fire the method
         return <button onClick={this.handleRemoveAll}>Remove All</button> 
     }
 }
@@ -75,12 +72,29 @@ class Option extends React.Component {
     };
 }
 
+//Challenge 2:
+// 1. Setup the form with text inpur and submit button
+// 2. Wire up onSubmit.
+// 3. handleAddOption -> fetch the value typed -> if value, then alert.
+
 class AddOption extends React.Component {
+    onFormSubmit(e) {
+        e.preventDefault();
+        
+        const option = e.target.elements.option.value;
+        
+        if (option) {
+            alert(option);
+            e.target.elements.option.value = ''; //Clears input
+        }
+    }
+
     render() {
         return (
-            <div>
+            <form onSubmit={this.onFormSubmit}>
+                <input type="text" name="option"/>
                 <button>Add Option</button>
-            </div>
+            </form>
         );
     }
 }
