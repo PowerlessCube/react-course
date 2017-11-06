@@ -37,13 +37,22 @@ class Options extends React.Component {
         return (
             <div>
                 <ul>
-                    <li>Option 1</li>
-                    <li>Option 2</li>
-                    <li>Option 3</li>
+                    <Option />
+                    <Option />
+                    <Option />
+                    <Option />
                 </ul>
             </div>
         );
     }
+}
+
+class Option extends React.Component {
+    render() {
+        return (
+            <li>Option component here.</li>
+        );
+    };
 }
 
 class AddOption extends React.Component {
