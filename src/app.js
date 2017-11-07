@@ -7,7 +7,6 @@ class IndecisionApp extends React.Component {
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
-        // setting our options to default props
         this.state = {
             options: props.options
         }
@@ -68,7 +67,6 @@ class IndecisionApp extends React.Component {
     }
 }
 
-// instantiating default props
 IndecisionApp.defaultProps = {
     options: []
 }
@@ -82,7 +80,6 @@ const Header = (props) => {
     );
 }
 
-// functional Components default props
 Header.defaultProps = {
     title: 'Indecision'
 }
@@ -152,5 +149,4 @@ class AddOption extends React.Component {
     }
 }
 
-// Passing in default props.options
-ReactDOM.render(<IndecisionApp options={['Barrel House', 'Hendersons']}/>, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
