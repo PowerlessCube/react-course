@@ -22,8 +22,6 @@ class Counter extends React.Component {
     }
 
     handleMinusOne() {
-        // Challenge
-        // Call this.setState decrement the count by 1.
         this.setState((prevState) => {
             return {
                 count: prevState.count - 1
@@ -32,7 +30,11 @@ class Counter extends React.Component {
     }
 
     handleReset() {
-        console.log('handleReset')            
+        this.setState(() => {
+            return {
+                count: 0
+            }
+        })
     }
     
     render() {
