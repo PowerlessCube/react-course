@@ -35,6 +35,21 @@ class Counter extends React.Component {
                 count: 0
             }
         })
+
+        this.setState((prevState) => {
+            return {
+                count: prevState.count + 1
+            }
+        })
+        // The old way and it's problems
+        // this.setState({
+        //     count: 0
+        // })
+        // this.setState({
+        //     count: this.state.count + 1 // increments instead of reset wtf??
+        // })
+
+        // Async problem: the old state is still 15 and just adds it.
     }
     
     render() {
