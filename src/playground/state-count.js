@@ -1,17 +1,25 @@
 class Counter extends React.Component {
-    // Challenge: 1
-    // Create three methods: handleAddOne, HandleMinusOne, HandleReset
-    // Use console.log to print method name
-    // Wire up onClick & bind the constructor  
+    
     constructor(props) {
         super(props);
         this.handleAddOne = this.handleAddOne.bind(this);
         this.handleMinusOne = this.handleMinusOne.bind(this);
         this.handleReset = this.handleReset.bind(this);
+        // 1. Setup Default state object
+        this.state = {
+            count: 0
+        };
     }
-
+    
+    // Methods
     handleAddOne() {
         console.log('handleAddOne');
+        // 3. Change state on event
+        this.setState((prevState) => { // prevState - state b4 change.
+            return {
+                count: prevState.count + 1
+            };
+        });
     }
 
     handleMinusOne() {
@@ -25,7 +33,7 @@ class Counter extends React.Component {
     render() {
         return (
             <div>
-                <h1>Count: </h1>
+                <h1>Count: {this.state.count /* 2. Component rendered with default state */}</h1>
                 <button onClick={this.handleAddOne}>+</button>
                 <button onClick={this.handleMinusOne}>-</button>
                 <button onClick={this.handleReset}>Reset</button>
