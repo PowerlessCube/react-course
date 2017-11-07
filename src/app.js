@@ -7,8 +7,9 @@ class IndecisionApp extends React.Component {
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
+        // setting our options to default props
         this.state = {
-            options: []
+            options: props.options
         }
     }
 
@@ -44,13 +45,11 @@ class IndecisionApp extends React.Component {
     }
 
     render() {
-        const title = "Indecision App";
         const subTitle = "Put Your life in the hands of a computer.";
 
         return (
             <div>
                 <Header 
-                    title={title} 
                     subTitle={subTitle} 
                 />
                 <Action 
@@ -69,13 +68,23 @@ class IndecisionApp extends React.Component {
     }
 }
 
+// instantiating default props
+IndecisionApp.defaultProps = {
+    options: []
+}
+
 const Header = (props) => {
     return (
         <div>
             <h1>{props.title}</h1>
-            <h2>{props.subTitle}</h2>
+            {props.subTitle && <h2>{props.subTitle}</h2>}
         </div>
     );
+}
+
+// functional Components default props
+Header.defaultProps = {
+    title: 'Indecision'
 }
 
 const Action = (props) => {
@@ -143,4 +152,5 @@ class AddOption extends React.Component {
     }
 }
 
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+// Passing in default props.options
+ReactDOM.render(<IndecisionApp options={['Barrel House', 'Hendersons']}/>, document.getElementById('app'));
