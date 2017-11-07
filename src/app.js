@@ -3,6 +3,7 @@ class IndecisionApp extends React.Component {
     constructor(props) {
         super(props);
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+        this.handlePick = this.handlePick.bind(this);
         this.state = {
             options: ['Thing One', 'Thing Two', 'Thing Three']
         }
@@ -15,9 +16,15 @@ class IndecisionApp extends React.Component {
             }
         });
     }
-
-    // handlePick - pass down to Action and seyup onClick- bind here
-    // randomly pick an option and alert it.
+    // handlePick - pass down to Action and setup onClick- bind here
+    handlePick() {
+        console.log('HandlePicks');
+        if (this.state.options.length > 0) {
+            const randomNum = Math.floor(Math.random() * this.state.options.length);
+            const option = this.state.options[randomNum];
+            alert(option);
+        }
+    }
     // remove old handlePick method from component.
 
     render() {
@@ -26,8 +33,14 @@ class IndecisionApp extends React.Component {
 
         return (
             <div>
-                <Header title={title} subTitle={subTitle} />
-                <Action hasOptions={this.state.options.length > 0}/>
+                <Header 
+                    title={title} 
+                    subTitle={subTitle} 
+                />
+                <Action 
+                    hasOptions={this.state.options.length > 0}
+                    handlePick={this.handlePick}
+                />
                 <Options 
                     options={this.state.options}
                     handleDeleteOptions={this.handleDeleteOptions} 
@@ -50,17 +63,12 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
-    //Class Method
-    handlePick() {
-        alert('handlePick');
-    }
-
     render() {
         return (
             <div>
                 <button 
                     disabled={!this.props.hasOptions} 
-                    onClick={this.handlePick}
+                    onClick={this.props.handlePick}
                 >
                     What should I do?
                 </button>
