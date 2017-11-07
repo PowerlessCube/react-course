@@ -1,3 +1,5 @@
+// Common Questions: If you have multiple pieces of state on your component, you only have to update the ones you want to change.
+
 class Counter extends React.Component {
     
     constructor(props) {
@@ -5,18 +7,18 @@ class Counter extends React.Component {
         this.handleAddOne = this.handleAddOne.bind(this);
         this.handleMinusOne = this.handleMinusOne.bind(this);
         this.handleReset = this.handleReset.bind(this);
-        // 1. Setup Default state object
         this.state = {
-            count: 0
+            count: 0,
+            name: "Some Name"
         };
     }
     
     // Methods
     handleAddOne() {
         console.log('handleAddOne');
-        // 3. Change state on event
-        this.setState((prevState) => { // prevState - state b4 change.
+        this.setState((prevState) => { 
             return {
+                // we're just changing the count value, not name.
                 count: prevState.count + 1
             };
         });
@@ -33,7 +35,8 @@ class Counter extends React.Component {
     render() {
         return (
             <div>
-                <h1>Count: {this.state.count /* 2. Component rendered with default state */}</h1>
+                {this.state.name}
+                <h1>Count: {this.state.count}</h1>
                 <button onClick={this.handleAddOne}>+</button>
                 <button onClick={this.handleMinusOne}>-</button>
                 <button onClick={this.handleReset}>Reset</button>
