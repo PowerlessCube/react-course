@@ -1,3 +1,5 @@
+// Stateless Functional component
+
 class IndecisionApp extends React.Component {
     
     constructor(props) {
@@ -150,4 +152,20 @@ class AddOption extends React.Component {
     }
 }
 
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+/* Advantages of Stateless functional component.
+    1. they don't manage state, but they do manage props.
+    2. They do not have access to this - props are passed in as first argument.
+    3. They are faster than out class state components (use them where you can.)
+    4. Easier to read and write
+    5. Easier to test (see more later on).
+*/ 
+const User = (props) => {
+    return (
+        <div>
+            <p>Name: {props.name} </p>
+            <p>Age: {props.age}</p>
+        </div>
+    );
+};
+
+ReactDOM.render(<User name='Alistair' age={29} />, document.getElementById('app'));
