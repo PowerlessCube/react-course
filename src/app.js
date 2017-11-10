@@ -1,7 +1,3 @@
-// Life Cycle Methods
-// Only have access to Life cycle methods in our class based component.
-
-
 class IndecisionApp extends React.Component {
     
     constructor(props) {
@@ -11,33 +7,26 @@ class IndecisionApp extends React.Component {
         this.handleAddOption = this.handleAddOption.bind(this);
         this.handleDeleteOption = this.handleDeleteOption.bind(this);
         this.state = {
-            options: props.options
+            options: []
         }
     }
 
     componentDidMount() {
         try {
-            // fetch it from storage.
             const json = localStorage.getItem('options');
-            // parse JSON into string
             const options = JSON.parse(json);
-            // checks if there is options
             if (options) {
-                // set the options into state.
                 this.setState(() => ({ options }));
             }
         } catch (e) {
-            // Do nothing at all
+            // Do nothing
         }
         
     }
 
     componentDidUpdate(prevProps, prevState) {
-        // check if options length did change.
         if (prevState.options.length !== this.state.options.length) {
-            // convert object to JSON
             const json = JSON.stringify(this.state.options);
-            // save to local storage
             localStorage.setItem('options', json);
             console.log('Saving data'); 
         }
@@ -102,10 +91,6 @@ class IndecisionApp extends React.Component {
             </div>
         );
     }
-}
-
-IndecisionApp.defaultProps = {
-    options: []
 }
 
 const Header = (props) => {
@@ -177,7 +162,7 @@ class AddOption extends React.Component {
     }
 
     handleAddOption(e) {
-        e.preventDefault(); // Stop page refresh.
+        e.preventDefault(); 
         
         const option = e.target.elements.option.value.trim();
         const error = this.props.handleAddOption(option);
