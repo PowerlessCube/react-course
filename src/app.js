@@ -15,23 +15,38 @@ class IndecisionApp extends React.Component {
         }
     }
 
-    // 1. Fires before component gets mounted to the DOM
     componentDidMount() {
-        console.log('fetching data!')
+        try {
+            // fetch it from storage.
+            const json = localStorage.getItem('options');
+            // parse JSON into string
+            const options = JSON.parse(json);
+            // checks if there is options
+            if (options) {
+                // set the options into state.
+                this.setState(() => ({ options }));
+            }
+        } catch (e) {
+            // Do nothing at all
+        }
+        
     }
 
-    // 2. Fire after the component updates, after state/prop value changes.
     componentDidUpdate(prevProps, prevState) {
-        // We have access to props/state
-        // prevProps/prevState
-        console.log('Saving data');
+        // check if options length did change.
+        if (prevState.options.length !== this.state.options.length) {
+            // convert object to JSON
+            const json = JSON.stringify(this.state.options);
+            // save to local storage
+            localStorage.setItem('options', json);
+            console.log('Saving data'); 
+        }
     }
-    //3. Fires just before a component goes away
+    
     componentWillUnmount() {
         console.log('component unmounted')
     }
 
-    // google react component life cycle for more information about lifecycles.
 
     handleDeleteOptions() {
         this.setState(() => ({options: []}));
@@ -122,7 +137,8 @@ const Action = (props) => {
 const Options = (props) => {
     return (
         <div>
-            <button onClick={props.handleDeleteOptions}>Remove All</button> 
+        <button onClick={props.handleDeleteOptions}>Remove All</button> 
+            {props.options.length === 0 && <p>Please add an option to get started.</p>}
             {
                 props.options.map((option) => (
                     <Option 
@@ -165,9 +181,12 @@ class AddOption extends React.Component {
         
         const option = e.target.elements.option.value.trim();
         const error = this.props.handleAddOption(option);
-        e.target.elements.option.value = "";
         
         this.setState(() => ({ error }));
+        
+        if (!error) {
+            e.target.elements.option.value = '';
+        }
     }
 
     render() {
