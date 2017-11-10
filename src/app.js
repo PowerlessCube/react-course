@@ -1,3 +1,7 @@
+// Life Cycle Methods
+// Only have access to Life cycle methods in our class based component.
+
+
 class IndecisionApp extends React.Component {
     
     constructor(props) {
@@ -10,6 +14,24 @@ class IndecisionApp extends React.Component {
             options: props.options
         }
     }
+
+    // 1. Fires before component gets mounted to the DOM
+    componentDidMount() {
+        console.log('fetching data!')
+    }
+
+    // 2. Fire after the component updates, after state/prop value changes.
+    componentDidUpdate(prevProps, prevState) {
+        // We have access to props/state
+        // prevProps/prevState
+        console.log('Saving data');
+    }
+    //3. Fires just before a component goes away
+    componentWillUnmount() {
+        console.log('component unmounted')
+    }
+
+    // google react component life cycle for more information about lifecycles.
 
     handleDeleteOptions() {
         this.setState(() => ({options: []}));
