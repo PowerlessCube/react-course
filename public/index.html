@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Indecision App</title>
-    </head>
-    <body>
-        <div id="app"></div>
-        <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
-        <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
-        <script src="/scripts/app.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Indecision App</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="/scripts/app.js"></script>
+</body>
 </html>
+
+<!-- 
+Webpack
+1. It allows us to organise our javascript files, webpack takes all of our dependencies 
+and returns one big zepplin file back.  Gulp and others has been doing it for years
+but webpack breaks up all of our javascript and allows them to communicate with eachother.
+
+e.g. grab the add function from the add.js file in the utils folder.
+
+2. It allows you to grab depencies to use within your app.
+
+e.g. grab React from the npm module
+
+// split it into public/ src/ mode_modules/
+
+
+-->
