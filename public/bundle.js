@@ -70,13 +70,19 @@
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_js__ = __webpack_require__(1);
-// import './utils.js'
-// named export
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__person_js__ = __webpack_require__(2);
+
 
 
 console.log('app.js is running!!!');
 console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["b" /* square */](2));
 console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["a" /* add */](2, 5));
+
+// Person function
+console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["b" /* isAdult */](5));
+console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["b" /* isAdult */](18));
+console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["a" /* canDrink */](29));
+console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["a" /* canDrink */](18));
 
 
 /***/ }),
@@ -98,11 +104,21 @@ const add = (a, b) => a + b;
 // export { square, add };
 // 2 types of export - default exports, named exports
 
-// Challenge
-// person.js
-// export 2 functions named export isAdult(18) = true if adult, otherwise false.
 
-// named export canDrink(18) - true if 21 and over, otherwise false.
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isAdult; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return canDrink; });
+console.log('person.js is loaded');
+
+const isAdult = (age) => age >= 18 ? true : false;
+const canDrink = (age) => age >= 21 ? true : false;
+
+
 
 /***/ })
 /******/ ]);
