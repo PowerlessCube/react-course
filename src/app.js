@@ -1,21 +1,7 @@
-import subtract, { square, add} from './utils.js'
-import isSenior from './person.js'
+// install -> import -> use
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-/* 
-What makes the default special? 
-1. We don't have to grab it by name.
-2. use default for a single component etc. no hard and fast rules for it.
-*/
+const template = React.createElement('p', {}, 'testing 123');
 
-console.log('app.js is running!!!');
-console.log(square(2));
-console.log(add(2, 5));
-console.log(subtract(100, 81));
-
-// Person function
-// console.log(isAdult(5));
-// console.log(isAdult(18));
-// console.log(canDrink(29));
-// console.log(canDrink(18));
-console.log(isSenior(74));
-console.log(isSenior(55));
+ReactDOM.render(template, document.getElementById('app'));
