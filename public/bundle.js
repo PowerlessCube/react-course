@@ -76,7 +76,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 console.log('app.js is running!!!');
 console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["b" /* square */](2));
-console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["a" /* add */](100, 23));
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["a" /* add */](2, 5));
 
 
 /***/ }),
@@ -84,16 +84,18 @@ console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["a" /* add */](100, 23));
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return square; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return add; });
 console.log('utils.js is running');
 
 const square = (x) => x * x;
+/* harmony export (immutable) */ __webpack_exports__["b"] = square;
+
 
 const add = (a, b) => a + b;
+/* harmony export (immutable) */ __webpack_exports__["a"] = add;
+
 
 //name exports (is not an object definition)
-
+// export { square, add };
 // 2 types of export - default exports, named exports
 
 
