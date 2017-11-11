@@ -70,6 +70,8 @@
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__person_js__ = __webpack_require__(2);
+
 
 
 /* 
@@ -88,7 +90,8 @@ console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["b" /* default */](100, 81))
 // console.log(isAdult(18));
 // console.log(canDrink(29));
 // console.log(canDrink(18));
-
+console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["a" /* default */](74));
+console.log(__WEBPACK_IMPORTED_MODULE_1__person_js__["a" /* default */](55));
 
 /***/ }),
 /* 1 */
@@ -106,6 +109,24 @@ const add = (a, b) => a + b;
 
 
 /* harmony default export */ __webpack_exports__["b"] = ((a, b) => a - b);
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export isAdult */
+/* unused harmony export canDrink */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return isSenior; });
+console.log('person.js is loaded');
+
+const isAdult = (age) => age >= 18;
+const canDrink = (age) => age >= 21;
+const isSenior = (age) => age >= 65;
+
+
+
+// Setting up the default export and function.
 
 /***/ })
 /******/ ]);

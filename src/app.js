@@ -1,4 +1,5 @@
 import subtract, { square, add} from './utils.js'
+import isSenior from './person.js'
 
 /* 
 What makes the default special? 
@@ -16,3 +17,5 @@ console.log(subtract(100, 81));
 // console.log(isAdult(18));
 // console.log(canDrink(29));
 // console.log(canDrink(18));
+console.log(isSenior(74));
+console.log(isSenior(55));
