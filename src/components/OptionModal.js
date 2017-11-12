@@ -1,8 +1,6 @@
-// using documentation we can implement the following
 import React from 'react';
 import Modal from 'react-modal';
 
-// onRequestClose - closes modal when esc or click out side modal happens.
 const OptionModal = (props) => (
     <Modal
         isOpen={!!props.selectedOption}
