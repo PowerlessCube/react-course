@@ -6,15 +6,14 @@ module.exports = {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js'
     },
-    //loader -> transform it to babel.
     module: {
-        // 3 properties to setup
         rules: [{
-            loader: 'babel-loader', // loader of choice
-            test:  /\.js$/, // what file do we want to run it on
+            loader: 'babel-loader',
+            test:  /\.js$/,
             exclude: /node_modules/
         }]
-    }
-    // set up presets with the .babelrc
+    },
+    // Set up Source mapping for easier debugging. https://webpack.js.org
+    devtool: 'cheap-module-eval-source-map'
 };
 
