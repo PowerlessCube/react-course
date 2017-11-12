@@ -5,11 +5,18 @@ import Header from './Header';
 import Action from './Action';
 import Options from './Options';
 
+// pull the state out of constructer
+// conver all 4 even handlers to class properties (arrow functions)
+// delete the constrct completely
+// start with class properties and end with the methods
+
 export default class IndecisionApp extends React.Component {
-    
+    state = {
+        options: []
+    };
+
     constructor(props) {
         super(props);
-        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
         this.handleDeleteOption = this.handleDeleteOption.bind(this);
@@ -44,7 +51,7 @@ export default class IndecisionApp extends React.Component {
     }
 
 
-    handleDeleteOptions() {
+    handleDeleteOptions = () => {
         this.setState(() => ({options: []}));
     }
 
