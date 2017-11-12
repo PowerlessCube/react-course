@@ -41,6 +41,10 @@ export default class IndecisionApp extends React.Component {
         }));
     }
 
+    clearSelectedOption = () => {
+        this.setState(() => ({ selectedOption: undefined }))
+    }
+
     componentDidMount() {
         try {
             const json = localStorage.getItem('options');
@@ -88,6 +92,7 @@ export default class IndecisionApp extends React.Component {
                 />
                 <OptionModal 
                     selectedOption={this.state.selectedOption}
+                    clearSelectedOption={this.clearSelectedOption}
                 />
             </div>
         );
