@@ -1,9 +1,9 @@
 const path = require('path');
-
+const publicPathString = path.join(__dirname, 'public');
 module.exports = {
     entry: './src/app.js',
     output: { 
-        path: path.join(__dirname, 'public'),
+        path: publicPathString,
         filename: 'bundle.js'
     },
     module: {
@@ -13,7 +13,10 @@ module.exports = {
             exclude: /node_modules/
         }]
     },
-    // Set up Source mapping for easier debugging. https://webpack.js.org
-    devtool: 'cheap-module-eval-source-map'
+    devtool: 'cheap-module-eval-source-map',
+    // setting up dev server see package.json for more details.
+    devServer: {
+        contentBase: publicPathString
+    }
 };
 
