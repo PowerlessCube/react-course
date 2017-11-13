@@ -14,9 +14,7 @@ module.exports = {
             exclude: /node_modules/
         },
         {
-            // Code used to convert our scss to css files
             test: /\.scss$/,
-            // loaders for our styles.
             use: [
                 'style-loader',
                 'css-loader',
