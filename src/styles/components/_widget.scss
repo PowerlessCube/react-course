@@ -7,6 +7,6 @@
     padding: $m-size;
 }
 
-// setup an element selector for widget-header
-// set margin 0
-// use the class.
+.widget-header__title {
+    margin: 0;
+}
