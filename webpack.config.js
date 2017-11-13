@@ -14,7 +14,8 @@ module.exports = {
             exclude: /node_modules/
         },
         {
-            test: /\.scss$/,
+            // adding the question mark to accomodate css and scss files.
+            test: /\.s?css$/,
             use: [
                 'style-loader',
                 'css-loader',
