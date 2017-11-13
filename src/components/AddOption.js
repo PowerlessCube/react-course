@@ -1,11 +1,10 @@
 import React from 'react';
 
 export default class AddOption extends React.Component {
-    // new way class properties for constructer values
     state = {
         error: undefined
     };
-    // class property
+
     handleAddOption = (e) => {
         e.preventDefault(); 
         
