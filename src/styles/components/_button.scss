@@ -2,12 +2,11 @@
 .big-button {
     background: $purple;
     border: none;
-    /* Sass functions see sass-lang/documentation/ for more details */
     border-bottom: .6rem solid darken($purple, 10%);
     color: white;
     font-weight: bold;
     font-size: $l-size;
-    margin-bottom: $xl-size;
+    margin-bottom: $m-size;
     padding: 2.4rem;
     width: 100%;
 }
@@ -30,4 +29,10 @@
     border: none;
     color: $off-white;
     padding: 0;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .big-button {
+        margin-bottom: $xl-size;    
+    }
 }
